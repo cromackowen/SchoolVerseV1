@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10131c">
+  <title>SchoolVerse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#overview"><span class="brand-mark">S</span>School<span>Verse</span></a>
+    <p class="nav-label">WORKSPACE</p>
+    <nav>
+      <button class="nav active" data-page="overview">⌂ <span>Overview</span></button>
+      <button class="nav" data-page="schoolhub">▤ <span>SchoolHub</span></button>
+      <button class="nav" data-page="social">◎ <span>Student Social</span></button>
+      <button class="nav" data-page="world">◇ <span>Virtual World</span></button>
+      <button class="nav" data-page="ai">✳ <span>SchoolVerse AI</span><i class="dot"></i></button>
+    </nav>
+    <p class="nav-label personal">PERSONAL</p>
+    <nav>
+      <button class="nav" data-page="locker">▣ <span>Digital Locker</span></button>
+      <button class="nav" data-page="quizzes">✎ <span>Quiz Battle</span></button>
+      <button class="nav" data-page="calendar">▦ <span>Calendar</span></button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="side-promo"><b>One space. More possibilities.</b><p>Keep your plans, ideas, and community together.</p></div>
+      <div class="user-mini"><span class="avatar">S</span><span><b>Student</b><small>Local preview</small></span></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="menu-button" id="menuButton" aria-label="Open navigation">☰</button>
+      <div class="crumb">Workspace <span>/</span> <b id="crumbName">Overview</b></div>
+      <div class="top-actions"><span class="demo-pill">● DEMO MODE</span><button class="icon-button" id="themeButton" title="Toggle theme" aria-label="Toggle theme">☼</button><button class="avatar top-avatar" aria-label="Profile">S</button></div>
+    </header>
+
+    <div class="content">
+      <section class="page active" id="page-overview">
+        <div class="page-heading">
+          <div><p class="eyebrow">YOUR STUDENT SPACE</p><h1>Good to see you<span>.</span></h1><p class="muted">A little progress each day adds up. Here's your space at a glance.</p></div>
+          <button class="primary" data-open-assignment>＋ Add an assignment</button>
+        </div>
+        <div class="hero">
+          <div class="hero-copy"><p class="eyebrow">✦ YOUR NEXT CHAPTER STARTS HERE</p><h2>Make room for<br><em>what matters.</em></h2><p>Bring your plans, ideas, and people together in one place.</p><button class="hero-button" data-page="schoolhub">Explore SchoolHub <b>→</b></button></div>
+          <div class="hero-graphic" aria-hidden="true"><div class="planet"></div><div class="orbit"></div><div class="float-card one">▤ <span><b>Stay on track</b><small>One step at a time</small></span></div><div class="float-card two">✳ <span><b>Think bigger</b><small>Ideas start here</small></span></div><i>✦</i></div>
+        </div>
+        <div class="section-head"><div><h2>Your overview</h2><p class="muted">Everything important, in one view.</p></div><button class="text-button" data-page="calendar">View calendar →</button></div>
+        <div class="stats">
+          <article class="stat"><span class="stat-icon blue">▤</span><small>UPCOMING TASKS</small><strong id="taskCount">03</strong><p>Keep your momentum going</p></article>
+          <article class="stat"><span class="stat-icon purple">✎</span><small>SAVED NOTES</small><strong id="noteCount">03</strong><p>Your ideas, organized</p></article>
+          <article class="stat"><span class="stat-icon green">◇</span><small>WORLD POINTS</small><strong>250 <small>pts</small></strong><p>Demo balance</p></article>
+          <article class="stat"><span class="stat-icon orange">◎</span><small>COMMUNITY</small><strong>12</strong><p>Demo connections</p></article>
+        </div>
+        <div class="columns">
+          <section class="panel"><div class="panel-head"><div><h3>Coming up</h3><p>Your next few tasks</p></div><button class="text-button" data-page="schoolhub">See all →</button></div><div id="dashboardTasks" class="task-list"></div><button class="add-link" data-open-assignment>＋ Add another task</button></section>
+          <section class="panel"><div class="panel-head"><div><h3>Quick access</h3><p>Jump back into your space</p></div></div>
+            <button class="quick-link" data-page="locker"><span class="quick-icon purple">▣</span><span><b>Digital Locker</b><small>Notes and saved items</small></span>↗</button>
+            <button class="quick-link" data-page="quizzes"><span class="quick-icon blue">✎</span><span><b>Quiz Battle</b><small>Practice and challenge</small></span>↗</button>
+            <button class="quick-link" data-page="ai"><span class="quick-icon green">✳</span><span><b>SchoolVerse AI</b><small>Your AI workspace</small></span>↗</button>
+          </section>
+        </div>
+        <p class="disclaimer">ⓘ This is a front-end preview. Cloud accounts, live social features, multiplayer, and AI connections are not active yet.</p>
+      </section>
+
+      <section class="page" id="page-schoolhub">
+        <div class="page-heading"><div><p class="eyebrow">YOUR ACADEMIC SPACE</p><h1>SchoolHub<span>.</span></h1><p class="muted">Keep your coursework and plans moving forward.</p></div><button class="primary" data-open-assignment>＋ New assignment</button></div>
+        <div class="feature-grid">
+          <article class="feature-card blue-card"><span>▤</span><h3>Assignments</h3><p>Track tasks, due dates, and project progress.</p><button data-scroll-tasks>Open assignments →</button></article>
+          <article class="feature-card purple-card"><span>▦</span><h3>Calendar</h3><p>See deadlines and plans in one timeline.</p><button data-page="calendar">Open calendar →</button></article>
+          <article class="feature-card green-card"><span>✎</span><h3>Study tools</h3><p>Build study guides, flashcards, and practice sets.</p><button data-page="quizzes">Explore study tools →</button></article>
+          <article class="feature-card orange-card"><span>▣</span><h3>Digital Locker</h3><p>Keep notes, links, and resources together.</p><button data-page="locker">Open your locker →</button></article>
+        </div>
+        <section class="panel section-gap" id="assignmentPanel"><div class="panel-head"><div><h3>Assignment tracker</h3><p>Saved in this browser for this preview</p></div></div><div id="assignmentList" class="task-list"></div></section>
+      </section>
+
+      <section class="page" id="page-social">
+        <div class="page-heading"><div><p class="eyebrow">PEOPLE & COMMUNITY</p><h1>Student Social<span>.</span></h1><p class="muted">A place for conversations, collaboration, and shared interests.</p></div></div>
+        <div class="notice"><b>Your community is taking shape.</b><p>Profiles, friend requests, private messages, group spaces, polls, and calls will connect here after accounts and moderation are configured.</p></div>
+        <div class="feature-grid three">
+          <article class="feature-card purple-card"><span>♧</span><h3>Messages</h3><p>Private and group conversations.</p><small>BACKEND REQUIRED</small></article>
+          <article class="feature-card blue-card"><span>◎</span><h3>Communities</h3><p>Spaces around classes and interests.</p><small>BACKEND REQUIRED</small></article>
+          <article class="feature-card green-card"><span>♧</span><h3>Calls</h3><p>Meet with friends and study groups.</p><small>BACKEND REQUIRED</small></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-world">
+        <div class="page-heading"><div><p class="eyebrow">PLAY • CREATE • CONNECT</p><h1>Virtual World<span>.</span></h1><p class="muted">A shared place to play, compete, and customize your space.</p></div><span class="points">◇ 250 <small>DEMO PTS</small></span></div>
+        <div class="world-banner"><p class="eyebrow">✦ THE ARCADE IS COMING</p><h2>Your next adventure<br>starts <em>here.</em></h2><p>Explore games, meet up with friends, and earn rewards.</p></div>
+        <div class="feature-grid three section-gap">
+          <article class="feature-card blue-card"><span>⌁</span><h3>Arcade</h3><p>Quick games, challenges, and leaderboards.</p><small>PLANNED</small></article>
+          <article class="feature-card purple-card"><span>♙</span><h3>Avatar Studio</h3><p>Build a character and collect cosmetics.</p><small>PLANNED</small></article>
+          <article class="feature-card green-card"><span>◇</span><h3>Shared Lobby</h3><p>Meet friends in a multiplayer space.</p><small>PLANNED</small></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-ai">
+        <div class="page-heading"><div><p class="eyebrow">IDEAS, EXPLAINED</p><h1>SchoolVerse AI<span>.</span></h1><p class="muted">A home for learning support, brainstorming, and creative projects.</p></div><span class="ai-status">● NOT CONNECTED</span></div>
+        <div class="ai-layout">
+          <aside class="panel ai-modes"><b>✳ AI Workspace</b><small>Provider connection pending</small><hr><p>MODES</p><button class="selected">▤ Study assistant</button><button>✧ Creative partner</button><button>⌘ Coding helper</button><button>◇ Fun & trivia</button></aside>
+          <div class="panel ai-chat"><div class="chat-welcome"><div class="ai-orb">✳</div><h2>What are you working on?</h2><p>Explore ideas, understand topics, and get unstuck.</p><div class="suggestions"><button>Explain a difficult topic</button><button>Help plan a project</button><button>Create practice questions</button></div><div class="ai-warning"><b>AI provider not connected yet</b><span>This preview does not send messages to an AI service. We'll connect an approved provider once account and usage requirements are confirmed.</span></div></div><div class="chat-entry"><input disabled placeholder="AI chat will be enabled after setup"><button disabled>↑</button></div></div>
+        </div>
+      </section>
+
+      <section class="page" id="page-locker">
+        <div class="page-heading"><div><p class="eyebrow">YOUR PERSONAL LIBRARY</p><h1>Digital Locker<span>.</span></h1><p class="muted">A home for notes, links, and things you want to keep.</p></div><button class="primary" id="newNoteButton">＋ New note</button></div>
+        <div class="locker-tools"><input id="noteSearch" placeholder="⌕  Search your locker..."><span>SAMPLE CONTENT</span></div>
+        <div class="notes-grid" id="notesGrid">
+          <article class="note-card"><small>NOTE</small><h3>Project ideas</h3><p>Collect early thoughts, links, and things to explore next.</p><footer>Sample note</footer></article>
+          <article class="note-card"><small>STUDY</small><h3>Study session plan</h3><p>Break a big topic into smaller sessions and review key ideas.</p><footer>Sample note</footer></article>
+          <article class="note-card"><small>SAVED LINK</small><h3>Useful resources</h3><p>Keep helpful websites and references together for later.</p><footer>Sample note</footer></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-quizzes">
+        <div class="page-heading"><div><p class="eyebrow">PRACTICE • PLAY • IMPROVE</p><h1>Quiz Battle<span>.</span></h1><p class="muted">Turn practice into a challenge, solo or with a group.</p></div><button class="primary" id="createQuizButton">＋ Create a quiz</button></div>
+        <div class="feature-grid three">
+          <article class="feature-card blue-card"><span>▤</span><h3>Study sets</h3><p>Build question sets from your own notes.</p><small>PLANNED</small></article>
+          <article class="feature-card purple-card"><span>⚡</span><h3>Live battles</h3><p>Challenge friends in real-time quiz rounds.</p><small>PLANNED</small></article>
+          <article class="feature-card green-card"><span>♧</span><h3>Community quizzes</h3><p>Share quizzes and discover new topics.</p><small>PLANNED</small></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-calendar">
+        <div class="page-heading"><div><p class="eyebrow">PLAN AHEAD</p><h1>Calendar<span>.</span></h1><p class="muted">A clear view of what is coming up.</p></div></div>
+        <div class="panel calendar-empty"><div>▦</div><h3>Your calendar will live here.</h3><p>Assignments, reminders, and group events will appear together once cloud storage is connected.</p><button class="text-button" data-page="schoolhub">Go to SchoolHub →</button></div>
+      </section>
+    </div>
+    <footer class="footer"><span>© 2026 SchoolVerse</span><span>Made for your next chapter ✦</span><span>FRONT-END PREVIEW</span></footer>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<dialog id="assignmentDialog" class="modal"><form id="assignmentForm" method="dialog"><div class="modal-title"><div><small>SCHOOLHUB</small><h2>New assignment</h2></div><button type="button" class="close" data-close="assignmentDialog">×</button></div><label>Assignment name<input id="assignmentName" required maxlength="90" placeholder="e.g. Research outline"></label><label>Due date<input id="assignmentDate" type="date"></label><label>Category<select id="assignmentCategory"><option>Coursework</option><option>Study session</option><option>Project</option><option>Personal</option></select></label><div class="modal-actions"><button type="button" class="secondary" data-close="assignmentDialog">Cancel</button><button class="primary">Add assignment</button></div></form></dialog>
+<dialog id="noteDialog" class="modal"><form id="noteForm" method="dialog"><div class="modal-title"><div><small>DIGITAL LOCKER</small><h2>New note</h2></div><button type="button" class="close" data-close="noteDialog">×</button></div><label>Title<input id="noteTitle" required maxlength="80" placeholder="Give your note a title"></label><label>Note<textarea id="noteBody" required maxlength="1200" rows="5" placeholder="Write something worth keeping..."></textarea></label><div class="modal-actions"><button type="button" class="secondary" data-close="noteDialog">Cancel</button><button class="primary">Save note</button></div></form></dialog>
+</body>
+</html>
